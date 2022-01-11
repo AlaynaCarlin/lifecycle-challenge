@@ -5,7 +5,7 @@ import PokeFetch from './Components/PokeFetch/PokeFetch';
 function App() {
   return (
     <div className="App">
-      <PokeFetch />
+      <PokeFetch startCount='10'/>
     </div>
   );
 }
