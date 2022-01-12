@@ -10,6 +10,8 @@ class PokeFetch extends Component {
       pokeSprite: '',
       pokeName: '',
       count: 10,
+      revealAnswer: false,
+      timerOn: false,
     }
   }
 
@@ -38,39 +40,40 @@ class PokeFetch extends Component {
       count: startCount
     })
 
-    this.myInterval = setInterval(() => {
-      this.setState({
-        count: this.state.count - 1
-      })
-    }, 1000)
+    this.setState({
+      myInterval: setInterval(() => {
+        if (this.state.count > 0) {
+          this.setState({
+            count: this.state.count - 1
+          })
+        } else {
+          this.setState({
+            revealAnswer: true
+          })
+        }
+      }, 1000)
+    })
 
   }
 
   guessPoke = () => {
     console.log('guessPok')
+    clearInterval(this.state.myInterval)
     this.timer()
     this.fetchPokemon()
   }
 
-  results = () => {
-    console.log('results component');     
-    this.setState({
-        imgClass: 'pokeImg2',
-        nameClass: 'pokeName2'
-      })
-  }
-
   render() { // returns the things
     console.log('render')
-    
+
     const { count } = this.state
     return (
       <div className={'wrapper'}>
         <button className={'start'} onClick={() => this.guessPoke()}>Start!</button>
         <h1 className={'timer'} >Timer Display: {count}</h1>
         <div className={'pokeWrap'}>
-          <img style={{filter:'brightness(0%)'}} className={'pokeImg'} src={this.state.pokeSprite} />
-          <h1 className={'pokeName'}>{this.state.pokeName}</h1>
+          <img className={this.state.revealAnswer ? 'pokeImg2' : 'pokeImg'} src={this.state.pokeSprite} />
+          <h1 className={this.state.revealAnswer ? 'pokeName2' : 'pokeName'}>{this.state.pokeName}</h1>
         </div>
       </div>
     )
@@ -78,25 +81,9 @@ class PokeFetch extends Component {
 
   componentDidUpdate(prevState) {
     console.log('componentDidUpdate')
-    if ( this.state.count === 0) {
+    if (this.state.count === 0) {
       clearInterval(this.myInterval)
-      this.styleChange();
-      // this.results();
     }
-  }
-
-  styleChange = () => {
-    console.log('styleChange');
-    return(
-      <div>
-      <img style={{filter:'brightness(100%)'}} className={'pokeImg'} src={this.state.pokeSprite} />
-      <h1 className={'pokeName'}>{this.state.pokeName}</h1>
-      </div>
-    )
-     // const newImg = document.querySelector('.pokeImg');
-    // newImg.filter = 'brightness(100%)';
-    // const newName = document.querySelector('.pokeName');
-    // newName.color = 'black';
   }
 
   componentDidMount() { // call backend code / api code

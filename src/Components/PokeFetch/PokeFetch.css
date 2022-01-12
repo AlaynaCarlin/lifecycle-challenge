@@ -31,7 +31,7 @@
 .pokeImg {
   width: 500px;
   /* opacity:0.5; */
-  /* filter:brightness(0%); */
+  filter:brightness(0%);
 }
 
 .pokeImg2 {
