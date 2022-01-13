@@ -33,12 +33,13 @@
   width: 480px;
   /* opacity:0.5; */
   filter:brightness(0%);
+  margin-left: -80px;
 }
 
 .pokeImg2 {
   width: 480px;
   /* opacity:0.5; */
-
+  margin-left: -80px;
 }
 
 .pokeName {
