@@ -41,6 +41,10 @@ class PokeFetch extends Component {
     })
 
     this.setState({
+      revealAnswer: false
+    })
+
+    this.setState({
       myInterval: setInterval(() => {
         if (this.state.count > 0) {
           this.setState({

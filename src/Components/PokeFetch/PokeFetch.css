@@ -20,6 +20,7 @@
 .timer{ 
   font-family: 'Press Start 2P', cursive;
   font-size: 3em;
+  color: black;
 }
 
 .pokeWrap{
@@ -29,13 +30,13 @@
 }
 
 .pokeImg {
-  width: 500px;
+  width: 480px;
   /* opacity:0.5; */
   filter:brightness(0%);
 }
 
 .pokeImg2 {
-  width: 500px;
+  width: 480px;
   /* opacity:0.5; */
 
 }
@@ -43,14 +44,14 @@
 .pokeName {
   font-family: 'Press Start 2P', cursive;
   text-transform: uppercase;
-  margin-top: -50px;
+  margin-top: -40px;
   color: transparent;
 }
 
 .pokeName2 {
   font-family: 'Press Start 2P', cursive;
   text-transform: uppercase;
-  margin-top: -50px;
-  /* color: transparent; */
+  margin-top: -40px;
+  color: black;
 }
 
